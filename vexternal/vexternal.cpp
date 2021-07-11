@@ -439,10 +439,10 @@ void renderEsp() {
 		}
 
 		if (g_esp_dormantcheck) {
-			float last_render_time = Driver::read<float>(g_pid, enemy.mesh_ptr + offsets::last_render_time);
-			float last_submit_time = Driver::read<float>(g_pid, enemy.mesh_ptr + offsets::last_submit_time);
+			float last_render_time = read<float>(g_pid, enemy.mesh_ptr + offsets::last_render_time);
+			float last_submit_time = read<float>(g_pid, enemy.mesh_ptr + offsets::last_submit_time);
 			bool is_visible = last_render_time + 0.06F >= last_submit_time;
-			bool dormant = Driver::read<bool>(g_pid, enemy.actor_ptr + offsets::dormant);
+			bool dormant = read<bool>(g_pid, enemy.actor_ptr + offsets::dormant);
 			if (!dormant || !is_visible) {
 				continue;
 			}
